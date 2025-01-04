@@ -4,8 +4,7 @@ module.exports.config = {
     credits: 'ManhG',
     hasPermssion: 3,
     description: '[Ban/Unban/Remove] List thread bot đã tham gia',
-    commandCategory: 'Hệ thống',
-    images: [],
+    commandCategory: 'Hệ Thống',
     usages: '[số trang/all]',
     cooldowns: 5
 };
@@ -39,7 +38,7 @@ module.exports.handleReply = async function({ api, event, args, Threads, handleR
                         msg += typef + ' ' + groupName + '\n𝗧𝗜𝗗: ' + idgr + "\n";
                         console.log(modules, msg)
                     }
-                    api.sendMessage(`=== [ 𝗕𝗔𝗡 𝗡𝗛𝗢́𝗠 ] ===\n🎀 𝗧𝗼̛́ 𝗻𝗵𝗮̣̂𝗻 𝗹𝗲̣̂𝗻𝗵 𝘁𝘂̛̀ 𝗮𝗱𝗺𝗶𝗻, 𝗬𝗲̂𝘂 𝗰𝗮̂̀𝘂 𝗰𝗮̂́𝗺 𝗻𝗵𝗼́𝗺.\n𝗟𝗶𝗲̂𝗻 𝗵𝗲̣̂ 𝗮𝗱𝗺𝗶𝗻 Đ𝗲̂̉ Đ𝘂̛𝗼̛̣𝗰 𝗴𝗼̛̃ 𝗯𝗮𝗻\n🌐 𝗳𝗯 𝗮𝗱𝗺𝗶𝗻:\nfb.com/100068096370437`, idgr, () =>
+                    api.sendMessage(`=== [ 𝗕𝗔𝗡 𝗡𝗛𝗢́𝗠 ] ===\n🎀 𝗧𝗼̛́ 𝗻𝗵𝗮̣̂𝗻 𝗹𝗲̣̂𝗻𝗵 𝘁𝘂̛̀ 𝗮𝗱𝗺𝗶𝗻, 𝗬𝗲̂𝘂 𝗰𝗮̂̀𝘂 𝗰𝗮̂́𝗺 𝗻𝗵𝗼́𝗺.\n𝗟𝗶𝗲̂𝗻 𝗵𝗲̣̂ 𝗮𝗱𝗺𝗶𝗻 Đ𝗲̂̉ Đ𝘂̛𝗼̛̣𝗰 𝗴𝗼̛̃ 𝗯𝗮𝗻\n🌐 𝗳𝗯 𝗮𝗱𝗺𝗶𝗻: ${global.config.FACEBOOK_ADMIN}`, idgr, () =>
                         api.sendMessage(`${global.data.botID}`, () =>
                             api.sendMessage(` [ 𝐌𝐎𝐃𝐄 ] - 𝗧𝗵𝘂̛̣𝗰 𝘁𝗵𝗶 𝗯𝗮𝗻 «\n(true/false) «\n\n ${msg}`, threadID, () =>
                                 api.unsendMessage(handleReply.messageID))));
@@ -84,7 +83,7 @@ module.exports.handleReply = async function({ api, event, args, Threads, handleR
                         msg += typef + ' ' + groupName + '\n» TID: ' + idgr + "\n";
                         console.log(modules, msg)
                     }
-                    api.sendMessage(`== [ 𝗹𝗲𝗮𝘃𝗲 𝘁𝗵𝗲 𝗴𝗿𝗼𝘂𝗽 ] ==\n━━━━━━━━━━━━━━━━━━\n🎊 𝗧𝗼̛́ 𝗻𝗵𝗮̣̂𝗻 𝗹𝗲̣̂𝗻𝗵 𝘁𝘂̛̀ 𝗮𝗱𝗺𝗶𝗻\n💞 𝗧𝗼̛́ 𝗼𝘂𝘁 𝗻𝗵𝗮 𝗣𝗽\n🌹 𝗟𝗶𝗲̂𝗻 𝗵𝗲̣̂ 𝗮𝗱𝗺𝗶𝗻 Đ𝗲̂̉ Đ𝘂̛𝗼̛̣𝗰 𝗺𝘂̛𝗼̛̣𝗻 𝗯𝗼𝘁 𝗹𝗮̣𝗶\n🌐 𝗳𝗯 𝗮𝗱𝗺𝗶𝗻:\nfb.com/100068096370437`, idgr, () =>
+                    api.sendMessage(`== [ 𝗹𝗲𝗮𝘃𝗲 𝘁𝗵𝗲 𝗴𝗿𝗼𝘂𝗽 ] ==\n━━━━━━━━━━━━━━━━━━\n🎊 𝗧𝗼̛́ 𝗻𝗵𝗮̣̂𝗻 𝗹𝗲̣̂𝗻𝗵 𝘁𝘂̛̀ 𝗮𝗱𝗺𝗶𝗻\n💞 𝗧𝗼̛́ 𝗼𝘂𝘁 𝗻𝗵𝗮 𝗣𝗽\n🌹 𝗟𝗶𝗲̂𝗻 𝗵𝗲̣̂ 𝗮𝗱𝗺𝗶𝗻 Đ𝗲̂̉ Đ𝘂̛𝗼̛̣𝗰 𝗺𝘂̛𝗼̛̣𝗻 𝗯𝗼𝘁 𝗹𝗮̣𝗶\n🌐 𝗳𝗯 𝗮𝗱𝗺𝗶𝗻: ${global.config.FACEBOOK_ADMIN}`, idgr, () =>
                         api.sendMessage(`${global.data.botID}`, () =>
                             api.sendMessage(`[ 𝐌𝐎𝐃𝐄 ] - 𝘁𝗵𝘂̛̣𝗰 𝘁𝗵𝗶 𝗼𝘂𝘁\n(true/false)\n\n${msg} `, threadID, () =>
                                 api.unsendMessage(handleReply.messageID))));
@@ -94,8 +93,6 @@ module.exports.handleReply = async function({ api, event, args, Threads, handleR
     }
 };
 module.exports.run = async function({ api, event, args }) {
-  const permission = ["100074278195157"];
-  if (!permission.includes(event.senderID)) return api.sendMessage("cút :))", event.threadID, event.messageID);
     switch (args[0]) {
         case "all":
             {
