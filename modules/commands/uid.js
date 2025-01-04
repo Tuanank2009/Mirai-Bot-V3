@@ -1,36 +1,40 @@
-module.exports = {
-    config: {
-        name: "uid",
-        version: "1.0.0",
-        hasPermssion: 0,
-        credits: "Mirai Team",
-        description: "Lấy ID người dùng.",
-        commandCategory: "Công cụ",
-        cooldowns: 0,
-        images: []
-    },
-    run: async function({ api, event, args }) {
-        const axios = require('axios');
+module.exports.config = {
+    name: "uid",
+    version: "1.2.0",
+    hasPermssion: 0,
+    credits: "TatsuYTB",
+    description: "Lấy UID người dùng.",
+    commandCategory: "Tiện ích",
+    cooldowns: 5,
+    prefix: "",
+};
+
+module.exports.handleEvent = async ({ api, event, Users }) => {
+    const { threadID, messageID, body, mentions, senderID, messageReply } = event;
+    if (body.startsWith("uid")) {
+        let uid;
         if (event.type == "message_reply") {
-            uid = event.messageReply.senderID;
-            return api.sendMessage(`${uid}`, event.threadID, event.messageID);
-        }
-        if (!args[0]) {
-            return api.sendMessage(`${event.senderID}`, event.threadID, event.messageID);
+            uid = messageReply.senderID;
+        } else if (body.indexOf('@') !== -1) {
+            uid = Object.keys(mentions)[0];
         } else {
-            if (args[0].indexOf(".com/") !== -1) {
-                const res_ID = await api.getUID(args[0]);
-                return api.sendMessage(`${res_ID}`, event.threadID, event.messageID);
-            } else {
-                for (var i = 0; i < Object.keys(event.mentions).length; i++) 
-                    api.sendMessage(`${Object.values(event.mentions)[i].replace('@', '')}: ${Object.keys(event.mentions)[i]}`, event.threadID);
-                return;
-            }
+            uid = senderID;
         }
-    },
-    handleEvent: async ({ api, event, args }) => {
-        if (event.body.toLowerCase() === "uid" || event.body.toLowerCase() === "Uid") {
-            await module.exports.run({ api, event, args: [] });
-        }
+        const name = await Users.getNameUser(uid);
+        api.sendMessage(uid, threadID, messageID);
     }
+};
+
+module.exports.run = async ({ api, event, Users, args }) => {
+    const { threadID, messageID, mentions, senderID, messageReply } = event;
+    let uid;
+    if (event.type == "message_reply") {
+        uid = messageReply.senderID;
+    } else if (args.join().indexOf('@') !== -1) {
+        uid = Object.keys(mentions)[0];
+    } else {
+        uid = senderID;
+    }
+    const name = await Users.getNameUser(uid);
+    return api.sendMessage(uid, threadID, messageID);
 };
